@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+section {
+  background-color: lightgray;
+  margin: 30px 0;
+
+  div.main-text {
+    color: green;
+
+    p {
+      border: 1px solid black;
+    }
+  }
+}
