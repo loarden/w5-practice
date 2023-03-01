@@ -4,13 +4,6 @@
   box-sizing: border-box;
 }
 
-section {
-  background-color: lightgray;
-  margin: 30px 0;
-}
-section div.main-text {
-  color: green;
-}
-section div.main-text p {
-  border: 1px solid black;
+body {
+  background-color: aliceblue;
 }/*# sourceMappingURL=style.css.map */

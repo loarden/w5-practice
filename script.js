@@ -1,15 +1,68 @@
-const array = ['sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'sheep', 'wolf', 'sheep']
+console.log('helo')
 
-function sheepAndWolf (args) {
-  const lastElement = args.length - 1
-  for (let i = args.length - 1; i >= 0; i--) {
-    /* if (args[lastElement] === 'wolf') {
-      console.log("Pls go away and stop eating my sheep")
-    } 
-    else  */if (args[i] === 'wolf') {
-      console.log(`Oi! Sheep ${i}! You are about to be eaten by a wolf!`)
-    }
+const cinemaData = [
+  {
+    name: 'comedy',
+    chairs: 20
+  },
+  {
+    name: 'drama',
+    chairs: 10
+  },
+  {
+    name: 'action',
+    chairs: 25
+  },
+  {
+    name: 'porn',
+    chairs: 50
   }
+]
+
+const chairComponent = (nth) => {
+  return `
+    <div class='chair'>
+      ${nth}
+    </div>`
 }
 
-sheepAndWolf(array)
+const roomComponent = (roomName, chairCount) => {
+
+  let roomHtml = ''
+  
+  for (let i = 1; i <= chairCount; i++) {
+    roomHtml += chairComponent(i)
+  }
+
+  return `
+    <div class='room ${roomName}'>
+      ${roomHtml}
+    </div>
+  `
+}
+
+const cinemaComponent = (rooms) => {
+  let cinemaHTML = ''
+
+  for (let i = 0; i < rooms.length; i++) {
+    cinemaHTML += roomComponent(rooms[i].name, rooms[i].chairs)
+  }
+
+  return `
+    <div class='cinema'>
+      ${cinemaHTML}
+    </div>
+  `
+}
+
+cinemaComponent(cinemaData)
+
+const rootElement = document.querySelector('#root')
+
+rootElement.insertAdjacentHTML('beforeend', cinemaComponent(cinemaData))
+
+
+/* for (let i = 0;i < 5; i++) {
+  rootElement.insertAdjacentHTML('beforeend', chairComponent(i+1)) */
+
+
